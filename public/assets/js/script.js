@@ -17,6 +17,8 @@ $("#submitBtn").on("click", function () {
         }
         const element = friendMatched[i];
         
+        answerSelected.push(element);
+
     }
     $("#surveyBody").hide();
 })
