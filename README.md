@@ -10,5 +10,5 @@ extremely close to home, put in a 5.
 Try it https://findfriendd.herokuapp.com/
 
 
-<img src="public/friendfind.png" alt="FriendFinder">
+<img src="friendfind.png" alt="FriendFinder">
 
