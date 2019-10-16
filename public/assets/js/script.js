@@ -1,24 +1,37 @@
 
 var answerSelected;
 var possibleFriendOne = "";
+var possibleOneValue = 0;
+var possibleFriendTwo = "";
+var possibleTwoValue = 0;
+
 
 $("#submitBtn").on("click", function () {
     answerSelected = $("option:selected");
 
     for (let i = 0; i < friendMatched.length; i++) {
-        for (let j = 0; j < answerSelected.length; j++) {
-            if(possibleFriendOne === "") {
-                possibleFriendOne = friendMatched[i];
+        if (possibleFriendOne === "") {
+            possibleFriendOne = friendMatched[i];
+        } else {
+            possibleFriendTwo = friendMatched[i];
+            for (let j = 0; j < answerSelected.length; j++) {
+                possibleOneValue += Math.abs(parseInt(possibleFriendOne.scores[j]) - parseInt(answerSelected[j].value));
+                possibleTwoValue += Math.abs(parseInt(possibleFriendTwo.scores[j]) - parseInt(answerSelected[j].value));
             };
-
-            
-           Math.abs(answerSelected[j].value - friendMatched[i].scores[j]);
-            
+            if (possibleOneValue > possibleTwoValue) {
+                possibleFriendOne = possibleFriendTwo;
+            };
+            possibleOneValue = 0;
+            possibleTwoValue = 0;
         }
-        const element = friendMatched[i];
-        
-        answerSelected.push(element);
-
-    }
+    };
     $("#surveyBody").hide();
-})
+    var friendCard = $(".container").append(
+        `<div class="card w-50 m-auto">
+                <img class="card-img" src=${possibleFriendOne.photo} alt="friend Image">
+                <div class="card-img-overlay">
+                    <h1 class="card-title">${possibleFriendOne.name}</h1>
+                </div>
+        </div>` 
+    );
+});
