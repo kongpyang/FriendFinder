@@ -8,3 +8,7 @@ you really, really disagree with the statement, your answer would be 1. If you f
 extremely close to home, put in a 5.
 
 Try it https://findfriendd.herokuapp.com/
+
+
+<img src="public/friendfind.png" alt="FriendFinder">
+
